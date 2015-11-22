@@ -1,0 +1,23 @@
+# Virtual IP configuration file for UCARP
+# The number (from 001 to 255) in the name of the file is the identifier
+
+# In the simple scenario, you want a single virtual IP address from the _same_
+# network to be taken over by one of the routers.
+VIP_ADDRESS="<%= @address %>"
+
+# In more complex scenarios, check the "vip-common" file for values to override
+# and how to add options.
+
+<% if @password != '' -%>
+PASSWORD="<%= @password %>"
+<% end -%>
+<% if @bind_interface != '' -%>
+BIND_INTERFACE="<%= @bind_interface %>"
+<% end -%>
+<% if @source_address != '' -%>
+SOURCE_ADDRESS="<%= @source_address %>"
+<% end -%>
+<% if @options != '' -%>
+# If you have extra options to add, see "ucarp --help" output
+OPTIONS="<%= @options %>"
+<% end -%>
